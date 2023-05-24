@@ -1,0 +1,52 @@
+#side-nav {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 0;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: all 0.5s;
+  background-color: black;
+}
+
+.hidden {
+    display:none;
+}
+
+.revertDisplay {
+    display:initial;
+}
+
+#side-nav__links a {
+  padding: 8px;
+  margin-top:3rem;
+  margin-bottom:3rem;
+  color: white;
+  display:block;
+  text-decoration:none;
+  border-top: 3px gray;
+}
+
+#side-nav__close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color:white;
+    cursor: pointer;
+}
+
+#nav-btn {
+  font-size: 3rem;
+  cursor: pointer;
+  z-index:auto;
+  position:sticky;
+  top:0;
+  left:0;
+  background-color: rgba(255,255,255,0)
+}
+
+embed {
+  min-width:100%;
+}
