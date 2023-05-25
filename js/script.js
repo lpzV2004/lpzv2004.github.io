@@ -6,7 +6,7 @@ function closeNav() {
   document.getElementById("side-nav").style.width = "0px";
 }
 
-$(document).ready(() => {
+$(() => {
   $("#unidad2").addClass("hidden");
   $("#unidad3").addClass("hidden");
   $("#unidad4").addClass("hidden");
@@ -93,7 +93,7 @@ $("#u4").on("click", () => {
   }
 });
 
-$("#practicas").on("click", () => {
+$("#linkPracticas").on("click", () => {
   if ($("#practicas").hasClass("hidden")) {
     $("#practicas").removeClass("hidden");
   }
