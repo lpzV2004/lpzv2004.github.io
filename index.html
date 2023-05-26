@@ -24,21 +24,21 @@
       <div id="side-nav">
         <div type="button" id="side-nav__close-btn">&times;</div>
         <nav id="side-nav__links">
-          <a href="#" id="u1">Unidad 1</a>
-          <a href="#" id="u2">Unidad 2</a>
-          <a href="#" id="u3">Unidad 3</a>
-          <a href="#" id="u4">Unidad 4</a>
-          <a href="#" id="linkPracticas">Prácticas</a>
+          <a href="#" id="u1" data-page="1">Unidad 1</a>
+          <a href="#" id="u2" data-page="2">Unidad 2</a>
+          <a href="#" id="u3" data-page="3">Unidad 3</a>
+          <a href="#" id="u4" data-page="4">Unidad 4</a>
+          <a href="#" id="linkPracticas" data-page="5">Prácticas</a>
         </nav>
       </div>
       <main id="main-content">
-        <span id="nav-btn">&#9776; Navegar</span>
+        <span id="nav-btn" data-active="false">&#9776; Navegar</span>
         <div id="main-content__div">
-          <div id="unidad1"></div>
-          <div id="unidad2"></div>
-          <div id="unidad3"></div>
-          <div id="unidad4"></div>
-          <div id="practicas">
+          <div id="unidad1" data-current="active" data-div="1"></div>
+          <div id="unidad2" data-current="false" data-div="2"></div>
+          <div id="unidad3" data-current="false" data-div="3"></div>
+          <div id="unidad4" data-current="false" data-div="4"></div>
+          <div id="practicas" data-current="false" data-div="5">
             <section>
               <h2>Práctica 1</h2>
               <embed src="./media/pdf/Práctica1.pdf" type="application/pdf" />

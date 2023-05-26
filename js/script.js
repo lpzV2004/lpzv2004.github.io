@@ -6,107 +6,59 @@ function closeNav() {
   document.getElementById("side-nav").style.width = "0px";
 }
 
-$(() => {
-  $("#unidad2").addClass("hidden");
-  $("#unidad3").addClass("hidden");
-  $("#unidad4").addClass("hidden");
-  $("#practicas").addClass("hidden");
-});
 
-$("#nav-btn").on("click", () => {
-  openNav();
-});
-
-$("#side-nav__close-btn").on("click", () => {
-  closeNav();
-});
-
-$("#u1").on("click", () => {
-  if ($("#unidad1").hasClass("hidden")) {
-    $("#unidad1").removeClass("hidden");
-  }
-  if (!$("#unidad2").hasClass("hidden")) {
+$(document).ready(()=>{
+  $(() => {
     $("#unidad2").addClass("hidden");
-  }
-  if (!$("#unidad3").hasClass("hidden")) {
     $("#unidad3").addClass("hidden");
-  }
-  if (!$("#unidad4").hasClass("hidden")) {
     $("#unidad4").addClass("hidden");
-  }
-  if (!$("#practicas").hasClass("hidden")) {
     $("#practicas").addClass("hidden");
-  }
-});
+  });
+  const nav = $('[data-page]');
 
-$("#u2").on("click", () => {
-  if ($("#unidad2").hasClass("hidden")) {
-    $("#unidad2").removeClass("hidden");
+  for (let i = 0; i < nav.length; i++) {
+    let tab = nav[i]
+    tab.addEventListener('click',()=>{
+      switchTab(tab)
+    })
   }
-  if (!$("#unidad1").hasClass("hidden")) {
-    $("#unidad1").addClass("hidden");
-  }
-  if (!$("#unidad3").hasClass("hidden")) {
-    $("#unidad3").addClass("hidden");
-  }
-  if (!$("#unidad4").hasClass("hidden")) {
-    $("#unidad4").addClass("hidden");
-  }
-  if (!$("#practicas").hasClass("hidden")) {
-    $("#practicas").addClass("hidden");
-  }
-});
 
-$("#u3").on("click", () => {
-  if ($("#unidad3").hasClass("hidden")) {
-    $("#unidad3").removeClass("hidden");
-  }
-  if (!$("#unidad1").hasClass("hidden")) {
-    $("#unidad1").addClass("hidden");
-  }
-  if (!$("#unidad2").hasClass("hidden")) {
-    $("#unidad2").addClass("hidden");
-  }
-  if (!$("#unidad4").hasClass("hidden")) {
-    $("#unidad4").addClass("hidden");
-  }
-  if (!$("#practicas").hasClass("hidden")) {
-    $("#practicas").addClass("hidden");
-  }
-});
+  let navBtn = $('#nav-btn')[0];
 
-$("#u4").on("click", () => {
-  if ($("#unidad4").hasClass("hidden")) {
-    $("#unidad4").removeClass("hidden");
-  }
-  if (!$("#unidad1").hasClass("hidden")) {
-    $("#unidad1").addClass("hidden");
-  }
-  if (!$("#unidad2").hasClass("hidden")) {
-    $("#unidad2").addClass("hidden");
-  }
-  if (!$("#unidad3").hasClass("hidden")) {
-    $("#unidad3").addClass("hidden");
-  }
-  if (!$("#practicas").hasClass("hidden")) {
-    $("#practicas").addClass("hidden");
-  }
-});
+  navBtn.addEventListener('click',()=>{
+    openNav()
+  })
+})
 
-$("#linkPracticas").on("click", () => {
-  if ($("#practicas").hasClass("hidden")) {
-    $("#practicas").removeClass("hidden");
+$('#side-nav__close-btn').on('click',()=>{
+  closeNav()
+})
+
+function switchTab(tab){
+  let current = $('[data-current="active"]')[0]
+  let numPage = tab.dataset.page
+  if(current.dataset.div === numPage) return;
+  current.dataset.current = 'false';
+  current.classList.add('hidden')
+  $(`[data-div='${numPage}'`)[0].dataset.current = 'active'
+  console.log(current)
+  console.log(tab)
+  console.log(numPage)
+  switch(parseInt(numPage)){
+    case 1:
+      $("#unidad1").removeClass('hidden')
+          break;
+    case 2:
+      $("#unidad2").removeClass('hidden')
+          break;
+    case 3:
+      $("#unidad3").removeClass('hidden')
+          break;
+    case 4:
+      $("#unidad4").removeClass('hidden')
+          break;
+    case 5:
+      $("#practicas").removeClass('hidden')
+          break;
   }
-  if (!$("#unidad1").hasClass("hidden")) {
-    $("#unidad1").addClass("hidden");
-  }
-  if (!$("#unidad2").hasClass("hidden")) {
-    $("#unidad2").addClass("hidden");
-  }
-  if (!$("#unidad3").hasClass("hidden")) {
-    $("#unidad3").addClass("hidden");
-  }
-  if (!$("#unidad4").hasClass("hidden")) {
-    $("#unidad4").addClass("hidden");
-  }
-});
+}
